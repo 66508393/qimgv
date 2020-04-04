@@ -23,6 +23,8 @@ public slots:
     void showFolderView();
     void toggleViewMode();
 
+private slots:
+    void readSettings();
 private:
     std::shared_ptr<DocumentWidget> documentView;
     std::shared_ptr<FolderViewProxy> folderView;

@@ -22,6 +22,7 @@ ImageViewerV2::ImageViewerV2(QWidget *parent) : QGraphicsView(parent),
         setViewport(new QOpenGLWidget);
 
     this->setViewportUpdateMode(QGraphicsView::MinimalViewportUpdate);
+    this->viewport()->setAttribute(Qt::WA_OpaquePaintEvent, true);
     setFocusPolicy(Qt::NoFocus);
     setAcceptDrops(false);
 
@@ -76,6 +77,9 @@ ImageViewerV2::~ImageViewerV2() {
 }
 
 void ImageViewerV2::readSettings() {
+    QColor bgColor = settings->backgroundColor();
+    bgColor.setAlphaF(settings->backgroundOpacity());
+    scene->setBackgroundBrush(bgColor);
     smoothAnimatedImages = settings->smoothAnimatedImages();
     smoothUpscaling = settings->smoothUpscaling();
     expandImage = settings->expandImage();
@@ -85,7 +89,6 @@ void ImageViewerV2::readSettings() {
     zoomStep = settings->zoomStep();
     transparencyGridEnabled = settings->transparencyGrid();
     focusIn1to1 = settings->focusPointIn1to1Mode();
-    scene->setBackgroundBrush(settings->backgroundColor());
     setScalingFilter(settings->scalingFilter());
     setFitMode(imageFitModeDefault);
 }

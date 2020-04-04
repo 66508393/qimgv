@@ -46,6 +46,7 @@ private slots:
     void selectNext();
     void selectPrev();
     void onitemSelected();
+    void readSettings();
 protected:
     void resizeEvent(QResizeEvent *event);
     virtual void updateScrollbarIndicator();

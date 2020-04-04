@@ -47,7 +47,8 @@ void ThumbnailGridWidget::drawThumbnail(QPainter *painter, qreal dpr, const QPix
 }
 
 void ThumbnailGridWidget::readSettings() {
-    highlightColor.setRgb(settings->highlightColor().rgb());
+    //highlightColor.setRgb(settings->highlightColor().rgb());
+    highlightColor.setRgb(0,0,0,90);
 }
 
 void ThumbnailGridWidget::drawHover(QPainter *painter) {

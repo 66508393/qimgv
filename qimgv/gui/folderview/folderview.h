@@ -5,6 +5,7 @@
 #include <QAbstractItemView>
 #include <QFileSystemModel>
 #include <QFileDialog>
+#include <QCommonStyle>
 #include "gui/idirectoryview.h"
 #include "gui/folderview/foldergridview.h"
 #include "gui/folderview/filesystemmodelcustom.h"

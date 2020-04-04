@@ -9,15 +9,23 @@ FolderGridView::FolderGridView(QWidget *parent)
 {
     offscreenPreloadArea = 2300;
     this->viewport()->setAttribute(Qt::WA_OpaquePaintEvent, true);
-    this->scene.setBackgroundBrush(QColor(47,47,48)); //#2f2f30 TODO: use qss??
 
     // turn this off until [multi]selection is implemented
     setDrawScrollbarIndicator(false);
     setSelectMode(SELECT_BY_DOUBLECLICK);
 
     setupLayout();
+    readSettings();
+    connect(settings, &Settings::settingsChanged,
+            this, &FolderGridView::readSettings);
     connect(this, &ThumbnailView::itemSelected,
             this, &FolderGridView::onitemSelected);
+}
+
+void FolderGridView::readSettings() {
+    QColor bgColor = settings->backgroundColor();
+    bgColor.setAlphaF(settings->backgroundOpacity());
+    this->scene.setBackgroundBrush(bgColor);
 }
 
 void FolderGridView::onitemSelected() {

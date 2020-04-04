@@ -14,6 +14,17 @@ CentralWidget::CentralWidget(std::shared_ptr<DocumentWidget> _docWidget, std::sh
     if(folderView)
         addWidget(folderView.get());
     showDocumentView();
+    readSettings();
+    connect(settings, &Settings::settingsChanged, this, &CentralWidget::readSettings);
+}
+
+void CentralWidget::readSettings() {
+    // stylesheet
+    QColor bgColor = settings->backgroundColor();
+    qreal opacity = settings->backgroundOpacity();
+    QString style = "CentralWidget { background-color: rgba(%1, %2, %3, %4); }";
+    style = style.arg(bgColor.red()).arg(bgColor.green()).arg(bgColor.blue()).arg(opacity);
+    setStyleSheet(style);
 }
 
 void CentralWidget::showDocumentView() {

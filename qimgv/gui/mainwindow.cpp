@@ -702,7 +702,7 @@ void MW::applyFullscreenBackground() {
     bgColor = settings->backgroundColorFullscreen();
     bgOpacity = 1.0;
 #ifdef USE_KDE_BLUR
-    KWindowEffects::enableBlurBehind(winId(), false);
+    //KWindowEffects::enableBlurBehind(winId(), false);
 #endif
 }
 
@@ -734,10 +734,12 @@ void MW::adaptToWindowState() {
 }
 
 void MW::paintEvent(QPaintEvent *event) {
+/*
     QPainter p(this);
     p.setOpacity(bgOpacity);
     p.setBrush(QBrush(bgColor));
     p.fillRect(this->rect(), p.brush());
+*/
     FloatingWidgetContainer::paintEvent(event);
 }
 

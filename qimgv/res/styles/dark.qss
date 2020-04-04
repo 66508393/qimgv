@@ -1,4 +1,14 @@
 /*----------------------------------------------------------------------------*/
+/*  set from settings incl transparency  */
+CentralWidget {
+/*    background-color: red;*/
+}
+
+FolderView {
+/*    background-color: red;  */
+}
+
+/*----------------------------------------------------------------------------*/
 /* Buttons */
 
 [accessibleName="Button"], [accessibleName="ButtonSetLeft"], [accessibleName="ButtonSetRight"] {
@@ -384,13 +394,6 @@ ThumbnailStrip {
     background-color: #1a1a1b;
 }
 /*----------------------------------------------------------------------------*/
-FolderGridView {
-    background-color: #2f2f30;
-}
-/*----------------------------------------------------------------------------*/
-FolderView {
-    background-color: #2f2f30;
-}
 /*----------------------------------------------------------------------------*/
 [accessibleName="FolderViewPanel"] {
     background-color: #1a1a1b;
@@ -535,7 +538,7 @@ ZoomIndicatorOverlay QLabel {
 
 FolderView QScrollBar:vertical {
     width: 12px;
-    background-color: transparent;
+    background-color: #2e2e2e;
 }
 
 FolderView QScrollBar::handle:vertical {
@@ -550,7 +553,7 @@ FolderView  QScrollBar::handle:vertical:hover {
 }
 
 FolderView QScrollBar::sub-page {
-    background: none;
+    background-color: rgba(0,0,0,0);
 }
 
 FolderView QScrollBar::add-page {
@@ -572,19 +575,17 @@ FolderView QScrollBar::sub-line {
 /*----------------------------------------------------------------------------*/
 
 FolderView QTreeView {
-    background-color: #373737;
+    background: transparent;
     color: #c8c8c8;
 }
 
 FolderView QTreeView::item {
     margin-right: 8px;
-    border: 1px solid transparent;
     border-radius: 2px;
 }
 
 FolderView QTreeView::item:hover {
-    background-color: #464646;
-    border-color: #464646;
+    background-color: rgba(255,255,255,32);
 }
 
 FolderView QTreeView::item:selected {
@@ -592,13 +593,11 @@ FolderView QTreeView::item:selected {
 }
 
 FolderView QTreeView::item:selected:active{
-    background-color: #545454;
-    border-color: #545454;
+    background-color: rgba(255,255,255,52);
 }
 
 FolderView QTreeView::item:selected:!active {
-    background-color: #545454;
-    border-color: #545454;
+    background-color: rgba(255,255,255,52);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -606,13 +605,11 @@ FolderView QTreeView::item:selected:!active {
 /*----------------------------------------------------------------------------*/
 
 BookmarksItem {
-    border: 1px solid transparent;
     border-radius: 2px;
 }
 
 BookmarksItem:hover {
-    background-color: #464646;
-    border-color: #464646;
+    background-color: rgba(255,255,255,32);
 }
 
 BookmarksItem QLabel {
@@ -624,7 +621,7 @@ BookmarksItem QLabel {
 /*----------------------------------------------------------------------------*/
 
 [accessibleName="PlacesPanel"] {
-    background-color: #373737;
+    background-color: rgba(0,0,0, 110);
 }
 
 [accessibleName="PanelSectionHeader"] {
@@ -656,26 +653,25 @@ BookmarksItem QLabel {
 }
 /*----------------------------------------------------------------------------*/
 [accessibleName="FolderViewPathBar"] {
-    background-color: #464646;
-    border: 1px solid #464646;
+    background-color: rgba(255,255,255,20);
     border-radius: 2px;
     color: #aeaeae;
-    padding: 4px 6px 4px 6px;
+    padding: 5px 7px 5px 7px;
 }
 /*----------------------------------------------------------------------------*/
 
 QTreeView::branch:has-siblings:!adjoins-item {
-        background: transparent;
+    background: transparent;
 }
 
 QTreeView::branch:has-children:!has-siblings:closed,
 QTreeView::branch:closed:has-children:has-siblings {
-        border-image: none;
-        image: url(:/res/icons/other/collapsed.png)
+    border-image: none;
+    image: url(:/res/icons/other/collapsed.png)
 }
 
 QTreeView::branch:open:has-children:!has-siblings,
 QTreeView::branch:open:has-children:has-siblings  {
-        border-image: none;
-        image: url(:/res/icons/other/expanded.png)
+    border-image: none;
+    image: url(:/res/icons/other/expanded.png)
 }
